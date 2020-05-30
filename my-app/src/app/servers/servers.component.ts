@@ -9,6 +9,7 @@ export class ServersComponent implements OnInit {
 
     allowNewServer:boolean  = false;
 
+    serverCreationStatus = "No servers created";
 
 
   constructor() {
@@ -19,6 +20,12 @@ export class ServersComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  //on mean event :- naming conventions 
+  onCreateServer(obj){
+      console.log(obj); // angualr obj
+      this.serverCreationStatus = "server was created !!! "
   }
 
 }

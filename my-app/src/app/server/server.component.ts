@@ -13,7 +13,7 @@ export class ServerComponent{
 
 
     getServerStatus(){
-        return this.serverStatus;
+        return this.serverStatus
     }
 
     
