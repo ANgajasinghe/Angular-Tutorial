@@ -5,10 +5,19 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './server.component.html'
 })
 
-export class ServerComponent implements OnInit {
-    constructor() { }
+export class ServerComponent{
 
-    ngOnInit() { }
+    //data binding 
+    serverID : number = 10;
+    serverStatus : string ="offline";
+
+
+    getServerStatus(){
+        return this.serverStatus;
+    }
+
+    
+    
 }
 
 

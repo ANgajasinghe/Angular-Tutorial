@@ -1,1 +1,10 @@
-<p>Server component =====================</p>
+<!-- interpolaton 
+    note - this methos will always return string end of the compilation
+    important - you can write block/multiline  expressions 
+
+**methods retuns will get as strings ...
+
+if you add like this getServerStatus it will return whole method  as string  
+-->
+
+<p>{{"server"}} with ID {{ serverID }} is {{getServerStatus()}}</p>
