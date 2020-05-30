@@ -5,6 +5,13 @@
 **methods retuns will get as strings ...
 
 if you add like this getServerStatus it will return whole method  as string  
+
+[ngStyle] = "{key : value}""
+[ngClass]="{'online': true}"
+
+
+
+
 -->
 
-<p>{{"server"}} with ID {{ serverID }} is {{getServerStatus()}}</p>
+<p [ngStyle]="{'background-color': getColor()}" [ngClass]="{'online': serverStatus ==='online'}">{{"server"}} with ID {{ serverID }} is {{getServerStatus()}}</p>

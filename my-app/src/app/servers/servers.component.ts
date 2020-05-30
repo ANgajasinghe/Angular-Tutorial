@@ -7,6 +7,7 @@ import { Component, OnInit} from '@angular/core';
   selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
+  
 })
 export class ServersComponent implements OnInit {
 
@@ -14,6 +15,9 @@ export class ServersComponent implements OnInit {
 
     serverCreationStatus = "No servers created";
     serverName = "TestServer";
+    serverCreated : boolean = false;
+
+    servers = ["Asia server" , "USA server"];
 
 
   constructor() {
@@ -29,7 +33,11 @@ export class ServersComponent implements OnInit {
   //on mean event :- naming conventions 
   onCreateServer(obj){
       console.log(obj); // angualr obj
-      this.serverCreationStatus = "server was created !!! "
+
+      this.servers.push(this.serverName);
+      
+      this.serverCreated = true;
+      this.serverCreationStatus = `server was created !!! ${this.serverName}`;
   }
 
   onUpdateServerName(event : any){
