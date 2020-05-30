@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-servers',
@@ -10,7 +13,7 @@ export class ServersComponent implements OnInit {
     allowNewServer:boolean  = false;
 
     serverCreationStatus = "No servers created";
-    serverName = "";
+    serverName = "TestServer";
 
 
   constructor() {
