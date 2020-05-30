@@ -4,8 +4,14 @@
 
     <!-- **
     ** envent binding (<event>) = "methodName()"
+        $event -> this parameter   used to send data in the method that bind with this event (ship data with firs)
     -->
 
+
+
+<label>server name</label>
+<input type="text" name="" id="" class="form-control" (input)="onUpdateServerName($event)">    
+<p>{{serverName}}</p>
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer(this)"> Submit </button>
 <!-- <p [innerText] = "allowNewServer"></p> -->
 <p>{{serverCreationStatus}}</p>

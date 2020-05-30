@@ -10,6 +10,7 @@ export class ServersComponent implements OnInit {
     allowNewServer:boolean  = false;
 
     serverCreationStatus = "No servers created";
+    serverName = "";
 
 
   constructor() {
@@ -26,6 +27,12 @@ export class ServersComponent implements OnInit {
   onCreateServer(obj){
       console.log(obj); // angualr obj
       this.serverCreationStatus = "server was created !!! "
+  }
+
+  onUpdateServerName(event : any){
+      console.log(event);
+      //<HTMLInputElement> casting and identifing weather this is input event 
+      this.serverName = (<HTMLInputElement>event.target).value;
   }
 
 }
