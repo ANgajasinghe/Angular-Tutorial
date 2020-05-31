@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+
+  //Array on recipes 
+  
+  recipes:Array<Recipe> = [
+    new Recipe('A Test recipe',
+    'This is a Simple a test',
+    'https://img.sndimg.com/food/image/upload/c_thumb,q_80,w_412,h_232/v1/img/recipes/11/75/32/CDncru7fQg2fz64NdtHk_Quick%20and%20easy%20pizza%20dough%20117532-5.jpg'),
+
+    new Recipe('A Test recipe 01 ','This is a Simple a test 01','https://www.biggerbolderbaking.com/wp-content/uploads/2019/07/15-Minute-Pizza-WS-Thumbnail.png')
+  ];
 
   constructor() { }
 
