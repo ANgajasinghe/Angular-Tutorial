@@ -1,4 +1,4 @@
-import { Component, OnInit, Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Output , EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -16,6 +16,10 @@ export class CockpitComponent implements OnInit {
 
   newServerName = '';
   newServerContent = '';
+
+  //view child this gives acces to the template DOM 
+  //this is an Angular type = ElementRef
+  @ViewChild('serverContentInput',{static : true}) ServerContentInput : ElementRef;
   
   constructor() { }
 
@@ -23,18 +27,21 @@ export class CockpitComponent implements OnInit {
   }
 
   onAddServer(serverNameInput:HTMLInputElement) {
-  
     /*
       serverNameInput is a html DOM obj that comes from view 
     */
-    console.log(serverNameInput.value);
     // this.serverCreated.emit({serverName : this.newServerName , serverContent : this.newServerContent})
-    this.serverCreated.emit({serverName : serverNameInput.value , serverContent : this.newServerContent})
+    this.serverCreated.emit({
+      serverName : serverNameInput.value , 
+      serverContent : this.ServerContentInput.nativeElement.value})
   }
 
-  onAddBlueprint() {
-    
-    this.bluePrintCreated.emit({serverName : this.newServerName , serverContent : this.newServerContent})
+  onAddBlueprint(serverNameInput:HTMLInputElement) { 
+   
+
+    this.bluePrintCreated.emit({
+      serverName : serverNameInput.value , 
+      serverContent : this.ServerContentInput.nativeElement.value})
   }
 
 }
