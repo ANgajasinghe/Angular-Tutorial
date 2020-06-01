@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ServerElementComponent implements OnInit {
 
-  //exporse to the world 
+  //exposure  to the world 
   @Input() element : {type : string, name:string , content: string}
   constructor() { }
 
