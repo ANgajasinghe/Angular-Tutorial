@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation:ViewEncapsulation.None // remove css encapsulation now this component css will works on others 
 })
 export class AppComponent {
   serverElements = [{type : 'server' , name : 'TestServer' , content : 'just a test!'}];
