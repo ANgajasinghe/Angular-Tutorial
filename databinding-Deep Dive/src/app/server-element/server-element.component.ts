@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ServerElementComponent implements OnInit {
 
   //exposure  to the world 
-  @Input() element : {type : string, name:string , content: string}
+  //add alias 
+  @Input('srvElement') element : {type : string, name:string , content: string}
   constructor() { }
 
   ngOnInit() {
