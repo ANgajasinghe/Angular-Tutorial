@@ -2,13 +2,25 @@
     <div class="col-xs-12">
       <p>Add new Servers or blueprints!</p>
       <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+
+      <!-- local reference data binding insted of two way data binding 
+          eg:-#serverNameInput :- reference to a element
+
+          Reference mean whole element not only value 
+      -->
+      <input type="text" 
+      class="form-control" 
+      #serverNameInput
+      >
+
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <input type="text" 
+      class="form-control" [(ngModel)]="newServerContent">
       <br>
       <button
         class="btn btn-primary"
-        (click)="onAddServer()">Add Server</button>
+        (click)="onAddServer(serverNameInput)">Add Server</button>
         &nbsp;
       <button
         class="btn btn-primary"
