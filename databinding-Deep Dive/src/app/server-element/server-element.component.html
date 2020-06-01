@@ -2,9 +2,7 @@
 class="panel panel-default">
 <div class="panel-heading">{{ element.name }}</div>
 <div class="panel-body">
-  <p>
-    <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-    <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-  </p>
+  <!-- this content holder allows you to add data to this from nother component -->
+    <ng-content></ng-content>
 </div>
 </div>

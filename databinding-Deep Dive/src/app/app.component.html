@@ -8,7 +8,12 @@
     <div class="col-xs-12">
       <app-server-element *ngFor="let item of serverElements"
       [srvElement] = 'item'
-      ></app-server-element>
+      >
+      <p>
+        <strong *ngIf="item.type === 'server'" style="color: red">{{ item.content }}</strong>
+        <em *ngIf="item.type === 'blueprint'">{{ item.content }}</em>
+      </p>
+    </app-server-element>
     </div>
   </div>
 </div>
