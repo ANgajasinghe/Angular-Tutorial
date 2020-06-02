@@ -1,18 +1,56 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css']
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent implements OnInit 
+, OnChanges , 
+DoCheck , 
+AfterContentInit , 
+AfterContentChecked , 
+AfterViewInit , 
+AfterViewChecked, 
+OnDestroy{
 
   //exposure  to the world 
   //add alias 
-  @Input('srvElement') element : {type : string, name:string , content: string}
+  @Input('srvElement') element : {type : string, name:string , content: string};
+  @Input() name : string;
   constructor() { 
 
+    console.log( " contructor is called ");
+
+  }
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy____Called');
+  }
+  ngAfterViewInit(): void {
     
+    console.log('ngAfterViewInit__Called');
+  }
+  ngAfterViewChecked(): void {
+    
+    console.log('ngAfterViewChecked__Called');
+
+  }
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked__Called');
+  }
+  ngAfterContentInit(): void {
+ 
+    console.log('ngAfterContentInitCalled');
+    //only called onece ;
+  }
+  ngDoCheck(): void {
+  
+    console.log('ngDoCheckCalled');
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+   
+    console.log(changes);
+    //use you need to change manulaly some things
 
   }
 
@@ -40,7 +78,12 @@ export class ServerElementComponent implements OnInit {
     ngOnDestroy : Called once the component is about to be destroyed 
   
   */
+
+  
+
   ngOnInit() {
+
+    console.log( " ngOnInit() called  ")
   }
 
 }
