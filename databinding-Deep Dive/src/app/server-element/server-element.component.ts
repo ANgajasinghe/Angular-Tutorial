@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -18,43 +18,16 @@ OnDestroy{
   //add alias 
   @Input('srvElement') element : {type : string, name:string , content: string};
   @Input() name : string;
+  
+  @ViewChild('heading',{static : true}) header : ElementRef;
+
   constructor() { 
 
     console.log( " contructor is called ");
 
   }
-  ngOnDestroy(): void {
-    console.log('ngOnDestroy____Called');
-  }
-  ngAfterViewInit(): void {
-    
-    console.log('ngAfterViewInit__Called');
-  }
-  ngAfterViewChecked(): void {
-    
-    console.log('ngAfterViewChecked__Called');
 
-  }
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked__Called');
-  }
-  ngAfterContentInit(): void {
- 
-    console.log('ngAfterContentInitCalled');
-    //only called onece ;
-  }
-  ngDoCheck(): void {
-  
-    console.log('ngDoCheckCalled');
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-   
-    console.log(changes);
-    //use you need to change manulaly some things
-
-  }
-
-  //life cycle hook
+   //life cycle hook
   /*
     Life cycle :- 
     
@@ -79,11 +52,52 @@ OnDestroy{
   
   */
 
-  
-
   ngOnInit() {
 
     console.log( " ngOnInit() called  ")
+    console.log(this.header);
   }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy____Called');
+  }
+
+  ngAfterViewInit(): void {
+    
+    console.log('ngAfterViewInit__Called');
+    console.log(this.header.nativeElement.textContent);
+  }
+
+  ngAfterViewChecked(): void {
+    
+    console.log('ngAfterViewChecked__Called');
+
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked__Called');
+  }
+
+  ngAfterContentInit(): void {
+ 
+    console.log('ngAfterContentInitCalled');
+    //only called onece ;
+  }
+
+  ngDoCheck(): void {
+  
+    console.log('ngDoCheckCalled');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    //use you need to change manulaly some things
+  }
+
+ 
+
+  
+
+  
 
 }
