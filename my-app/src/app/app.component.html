@@ -1,9 +1,16 @@
-<app-header></app-header>
+<app-header (selectedType)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shoping-list></app-shoping-list>
+      <app-recipes *ngIf="navigateType === 'r' ; else showShoping">
+        
+      </app-recipes>
+
+      <ng-template #showShoping>
+        <app-shoping-list></app-shoping-list>
+      </ng-template>
+      
+      
     </div>
   </div>
 </div>
