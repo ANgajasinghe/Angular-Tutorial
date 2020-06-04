@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
+    isRecipe : boolean = true;
     @Output() selectedType = new EventEmitter<string>();
 
     constructor() { }
@@ -16,7 +17,12 @@ export class HeaderComponent implements OnInit {
 
     
     onSelect(type_ : string){
-        this.selectedType.emit(type_)
-
+        if(type_ === 's'){
+            this.isRecipe = false;
+        }
+        else{
+            this.isRecipe = true;
+        }
+        this.selectedType.emit(type_);
     }
 }
