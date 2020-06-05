@@ -19,4 +19,10 @@ export class ShopingListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onIngreadientAdded(ingredient : Ingredient){
+
+    //add to array first 
+    this.ingredients.unshift(ingredient)
+  }
+
 }
