@@ -29,7 +29,13 @@ export class NewAccountComponent {
 
     
   */
-  constructor(private logingService: LogginService , private accountService : AccountService ) { }
+  constructor(private logingService: LogginService , private accountService : AccountService ) { 
+
+    this.accountService.onStatusUpdated.subscribe(
+      (status:string)=>alert(`New Status ${status}`)
+    );
+    
+  }
 
   onCreateAccount(accountName: string, accountStatus: string) {
 
