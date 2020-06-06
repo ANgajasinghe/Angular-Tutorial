@@ -20,6 +20,18 @@ export class ShopingListServices {
         this.ingredientChange.emit(this.ingredients.slice());
     }
 
+    addIngredients(ingredients : Ingredient[]){
+
+
+        // ingredients.forEach(ingredient => {
+        //     this.addIngredient(ingredient)
+        // });
+        // ... is a spred operator js ES6 
+        this.ingredients.unshift(...ingredients);
+        this.ingredientChange.emit(this.ingredients.slice());
+
+    }
+
     
     
 }
