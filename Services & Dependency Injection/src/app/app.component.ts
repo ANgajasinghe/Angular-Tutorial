@@ -5,7 +5,7 @@ import { AccountService } from './account.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers : [AccountService]
+  providers : []
 })
 export class AppComponent implements OnInit{
   

@@ -34,7 +34,7 @@ export class NewAccountComponent {
   onCreateAccount(accountName: string, accountStatus: string) {
 
     this.accountService.addAccount(accountName,accountStatus);
-    this.logingService.logStatusChange(accountStatus);
+    //this.logingService.logStatusChange(accountStatus);
 
     //this is not a proper way 
     //const service = new LogginService();
