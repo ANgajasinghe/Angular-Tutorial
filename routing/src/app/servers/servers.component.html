@@ -10,6 +10,15 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
+    <!-- relative and absoulte path
+    
+    /servers -> called as absolute path it will append to the root domain always.
+    
+    {servers, ./servers, ../servers} -> called relative path it always appened to the current path 
+    
+    NOTE :- server OR ./servers will not works on here becayse currently on inside the component 
+            these kind of routes will work on the parent component -->
+    
     <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server>
