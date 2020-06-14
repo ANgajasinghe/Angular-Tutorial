@@ -1,2 +1,8 @@
 <p>User with ID {{user.id}} loaded.</p>
 <p>User name is {{user.name}}</p>
+
+
+<hr>
+<!-- This is the defult behaviour of the angular 
+If this on a same component angular not goint to recreate this again   -->
+<a [routerLink]="['/users',10,'Naya']" routerLinkActive="router-link-active"> Load Naya </a>

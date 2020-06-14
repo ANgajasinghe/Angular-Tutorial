@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -13,10 +13,20 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     //{path:'users/:id/:name' , component : UserComponent},//:id = (:) == dynamaic
+
+    //no route parameters change use this , 
     this.user = {
-      id:this.route.snapshot.params['id'],
-      name:this.route.snapshot.params['name']
-    }
+        id:this.route.snapshot.params['id'],
+        name:this.route.snapshot.params['name']
+    };
+
+    //this is a Observable(asyn)
+
+    //IF not add this too
+    this.route.params.subscribe((params : Params) =>{
+        this.user.id = params['id'];
+        this.user.name = params['name'];
+    });
   }
 
 }
