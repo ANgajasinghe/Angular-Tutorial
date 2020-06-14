@@ -10,7 +10,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
-  currentId : number = 1;
 
   constructor(private serversService: ServersService , private route : ActivatedRoute) { }
 
