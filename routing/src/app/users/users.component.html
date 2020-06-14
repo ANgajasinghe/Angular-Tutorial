@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
-        href="#"
+        [routerLink]="['/users',user.id,user.name]" routerLinkActive="router-link-active" 
         class="list-group-item"
         *ngFor="let user of users">
         {{ user.name }}
