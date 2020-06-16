@@ -12,10 +12,11 @@ export class AuthGuardServices implements CanActivate , CanActivateChild{
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | import("@angular/router").UrlTree | import("rxjs").Observable<boolean | import("@angular/router").UrlTree> | Promise<boolean | import("@angular/router").UrlTree> {
         return this.canActivate(childRoute , state);
     }
-    
+
     canActivate(route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot): boolean | import("@angular/router").UrlTree | import("rxjs").Observable<boolean | import("@angular/router").UrlTree> | Promise<boolean | import("@angular/router").UrlTree> {
        return this.authService.isAuthenticated()
+       
         .then((result : boolean)=>{
             if (result) {
                 return true;
