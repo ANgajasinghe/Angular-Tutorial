@@ -8,6 +8,7 @@ import { ServersComponent } from "./servers/servers.component";
 import { ServerComponent } from "./servers/server/server.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { AuthGuardServices } from './auth-guard.service';
 
 
 const appRoutes : Routes =[
@@ -15,7 +16,13 @@ const appRoutes : Routes =[
     {path:'users' , component : UsersComponent , children :[  
       {path:':id/:name' , component : UserComponent}
     ]},
-    {path:'servers' , component : ServersComponent , children:[
+    // Guard the router in here this will automaticaly applied to the child components as well . 
+
+    {path:'servers' ,//canActivate:[AuthGuardServices] 
+
+      canActivateChild : [AuthGuardServices] //-- this Guard will effets only to the child routes in this parent routs 
+    , component : ServersComponent 
+    , children:[
       {path:':id' , component : ServerComponent},
       {path:':id/edit' , component : EditServerComponent}
     ]}, 
