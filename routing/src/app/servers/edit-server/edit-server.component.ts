@@ -58,10 +58,6 @@ export class EditServerComponent implements OnInit , CanComponentDeactivate{
     this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
-
-
-   
-
   }
 
   onUpdateServer() {
