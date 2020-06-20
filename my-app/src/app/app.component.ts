@@ -7,11 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  
-    navigateType : string = 'r';
-
-    onNavigate(type_:string){
-
-      this.navigateType = type_;
-      
-    }
+    
 }
