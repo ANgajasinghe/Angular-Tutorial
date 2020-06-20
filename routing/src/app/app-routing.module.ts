@@ -37,9 +37,13 @@ const appRoutes : Routes =[
     
   ];
   
+/*
+Some servers not work with this kind of routes so that we need to enable # routing 
+it like bellow
+*/
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes) // add routes 
+        RouterModule.forRoot(appRoutes , {useHash : true}) // add routes 
     ],
     exports:[RouterModule]
 })
