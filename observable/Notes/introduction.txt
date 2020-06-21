@@ -19,3 +19,7 @@ What is observer
             03 : handle completion
 
 USE TO HANDLE ASYN TASKS
+
+observers have two types 
+    Active : Subject (Allows you to call .next and ect functions outside the observer)
+    Passive: Others
