@@ -10,7 +10,7 @@ export class RecipeItemComponent implements OnInit {
 
 
   @Input('recipe') item : Recipe;
-  
+  @Input('id') index : number;
 
   constructor() { }
 
