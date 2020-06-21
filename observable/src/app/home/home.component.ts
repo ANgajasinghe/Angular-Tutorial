@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+import { interval, Subscription, Observable } from 'rxjs';
 import { count } from 'console';
 
 @Component({
@@ -28,9 +28,25 @@ export class HomeComponent implements OnInit , OnDestroy {
 
 
     // ---  TO AVOID MEMORY LEAK
-   this.firstObsDubcription = interval(2000).subscribe(count =>{
-                                console.log(count);
-                              });
+  //  this.firstObsDubcription = interval(2000).subscribe(count =>{
+  //                               console.log(count);
+  //                             });
+
+  //=========================Build Custome Obs
+
+    //observer : - we Talked this in the introduction 
+    const customIntervalObservable = Observable.create( observer =>{
+      let count = 0;  
+      setInterval(()=>{
+          observer.next(count);
+          count++;
+        },1000)
+    });
+
+    this.firstObsDubcription = customIntervalObservable.subscribe(data => {
+      console.log(data);
+    })
+
   }
 
   ngOnDestroy(): void {
