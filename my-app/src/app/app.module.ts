@@ -14,6 +14,7 @@ import { ShopingEditComponent } from './shoping-list/shoping-edit/shoping-edit.c
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShopingListServices } from './shoping-list/shoping-list.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
     ShopingListComponent,
     ShopingEditComponent,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
     
 
   ],
