@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    //observable  this.route.params.subscribe( )
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
     });
