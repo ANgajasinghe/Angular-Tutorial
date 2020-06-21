@@ -1,0 +1,21 @@
+what is observable 
+    various data sources 
+    eg:-
+        user Inputs(events)
+        Http Requests
+        Triggered in code 
+
+
+note : there have a streem between observable and observer
+
+
+What is observer
+    your code 
+    eg:-
+        subcribe() - in the router
+        3 way to handle the data packages (you write the code which gets executed !)
+            01 : handle data
+            02 : handle Error
+            03 : handle completion
+
+USE TO HANDLE ASYN TASKS
