@@ -1,0 +1,10 @@
+input type="text" 
+id="username" 
+class="form-control"
+ngModel
+name="username">
+
+ngModel : add this lable to tell to angular this is a input 
+name="name"
+
+this two elements will register to angular
