@@ -21,7 +21,9 @@
             name="email"
             required
             email
+            #email="ngModel"
             >
+            <span class="text-danger" *ngIf="!email.valid && email.touched">This is not a valid email</span>
           </div>
         </div>
         <div class="form-group">
