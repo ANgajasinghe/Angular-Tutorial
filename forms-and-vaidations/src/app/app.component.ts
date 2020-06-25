@@ -8,10 +8,11 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  @ViewChild('f',{'static': true}) signupForm : NgForm;
+  @ViewChild('f', {'static': true}) signupForm: NgForm;
 
-  defaultQuestion='pet'
+  defaultQuestion = 'pet';
   answer = '';
+  genders = ['male' , 'female'];
 
 
 
@@ -23,7 +24,7 @@ export class AppComponent {
   //   console.log(form)
   // }
 
-  onSubmit(){
+  onSubmit() {
       console.log(this.signupForm);
   }
 
