@@ -18,4 +18,9 @@ export class AppComponent implements OnInit {
       'gender' : new FormControl('male')
     });
   }
+
+  onSubmit() {
+    // in this approach we dont need local reference because we created this form
+    console.log(this.signupForm);
+  }
 }
