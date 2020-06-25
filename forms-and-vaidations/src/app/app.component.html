@@ -2,17 +2,20 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit) = "onSubmit()" #f="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userData = "ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" 
-            id="username" 
+            <input type="text"
+            id="username"
             class="form-control"
             ngModel
-            name="username" 
+            name="username"
             required
             >
           </div>
+
+
+
           <button class="btn btn-default" type="button">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
@@ -23,9 +26,13 @@
             email
             #email="ngModel"
             >
+
             <span class="text-danger" *ngIf="!email.valid && email.touched">This is not a valid email</span>
           </div>
         </div>
+        <p class="text-danger" *ngIf="!userData.valid && userData.touched">User data invalid </p>
+
+
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select
