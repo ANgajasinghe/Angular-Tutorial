@@ -66,6 +66,7 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
+
     // in this approach we dont need local reference because we created this form
     console.log(this.signupForm);
     this.signupForm.reset({
@@ -79,7 +80,8 @@ export class AppComponent implements OnInit {
 
 
   forbiddenNames(control: FormControl) : {[s:string]:boolean}{
-    // ===== this part will execute when match the usernames=====
+
+    // ===== this part will execute when match the usernames =====
     // if(this.forbiddenUsernames.indexOf(control.value)){
     //   return {'isValidUser':true};
     // } else {
