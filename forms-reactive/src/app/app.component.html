@@ -12,7 +12,16 @@
               formControlName="username"
               class="form-control">
             <div class="text-danger" *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">
-              Please fill this field  </div>
+              <!-- validations -->
+              <div *ngIf="signupForm.get('userData.username').errors['required']">
+                This field is required.
+              </div>
+
+              <div *ngIf="signupForm.get('userData.username').errors['isValidUser']">
+                This user name already taken
+              </div>
+
+            </div>
           </div>
           <div class="form-group">
             <label for="email">email</label>
@@ -23,7 +32,9 @@
               class="form-control">
   
             <div class="text-danger" *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched">
-              Please enter a valid email  </div>
+              Please enter a valid email  
+              
+            </div>
   
           </div>
 
