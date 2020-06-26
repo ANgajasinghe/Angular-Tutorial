@@ -2,28 +2,34 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            formControlName="username"
-            class="form-control">
-          <div class="text-danger" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
-            Please fill this field  </div>
-        </div>
-        <div class="form-group">
-          <label for="email">email</label>
-          <input
-            type="text"
-            id="email"
-            formControlName="email"
-            class="form-control">
 
-          <div class="text-danger" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
-            Please enter a valid email  </div>
+         <div formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              class="form-control">
+            <div class="text-danger" *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">
+              Please fill this field  </div>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control">
+  
+            <div class="text-danger" *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched">
+              Please enter a valid email  </div>
+  
+          </div>
 
-        </div>
+         </div> 
+
+      
         <div class="radio" *ngFor="let gender of genders">
           <label>
             <input
