@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, FormArray, FormBuilder} from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,23 @@ export class AppComponent implements OnInit {
       //'hobbies' : new FormArray([new FormControl()])
       'hobbies' : new FormArray([])
     });
+
+
+    // Observable ================= 01 Retuen values 
+
+    // this.signupForm.valueChanges.subscribe(
+    //   (value) => {
+    //     console.log(value);
+    //   }
+    // );
+
+    // Observable ================= 01 Return valide invalide status
+    
+    this.signupForm.statusChanges.subscribe(
+      (value) => {
+        console.log(value);
+      }
+    );
   }
 
   onSubmit() {
