@@ -38,6 +38,19 @@
               [value]="gender">{{ gender }}
           </label>
         </div>
+
+          <div formArrayName="hobbies">
+            <h4>Your Hobbies</h4>
+            <button class="btn btn-default" type="button"
+            (click)="onAddHobby()"
+            >Add Hobby</button>
+            <div class="form-group"
+              *ngFor="let item of signupForm.get('hobbies').controls; let i = index"
+            >
+              <input type="text" [formControlName]="i">
+            </div>
+          </div>
+          <br>
         <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
       </form>
     </div>
