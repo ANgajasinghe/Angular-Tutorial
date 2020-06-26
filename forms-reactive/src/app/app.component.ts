@@ -46,11 +46,31 @@ export class AppComponent implements OnInit {
         console.log(value);
       }
     );
+
+
+    this.signupForm.setValue({
+      'userData' :{
+        'username' : 'akalanka',
+        'email' : 'Nayanajith@gmail.com'
+      },
+      'gender':'male',
+      'hobbies':[]
+    });
+
+    this.signupForm.patchValue({
+      'userData' :{
+        'username' : 'anna',
+      }
+    });
+     
   }
 
   onSubmit() {
     // in this approach we dont need local reference because we created this form
     console.log(this.signupForm);
+    this.signupForm.reset({
+      'gender' : 'male',
+    })
   }
   onAddHobby(){
     const control = new FormControl(null,Validators.required);
