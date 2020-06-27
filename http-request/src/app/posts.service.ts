@@ -1,17 +1,22 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {PostModel} from './post.model';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
+import {Subject, throwError} from 'rxjs';
 
 @Injectable({providedIn : 'root'}) // recommended
 export class PostsService {
 
+  error = new Subject<string>();
+
   constructor(private http: HttpClient) { }
   createAndStorePost(_title:string , _content: string){
     const postData : PostModel = {title:_title , content: _content};
-    this.http.post<{name : string}>('https://ng-http-18a69.firebaseio.com/posts.json', postData).subscribe(responseData => {
-      console.log(responseData);
-    });
+    this.http.post<{name : string}>('https://ng-http-18a69.firebaseio.com/posts.json', postData)
+      .subscribe(responseData => {
+    },error => {
+        this.error.next(error.message);
+      });
     console.log(postData);
   }
 
@@ -24,10 +29,17 @@ export class PostsService {
           if (responseData.hasOwnProperty(key)) {
             postArray.push({...responseData[key], id:key});
           }
-
         }
         return postArray;
+      }),catchError(err => {
+        return  throwError(err);
       }));
 
+  }
+
+  deletePosts() {
+    return this.http.delete(
+      'https://ng-http-18a69.firebaseio.com/posts.json'
+    );
   }
 }
