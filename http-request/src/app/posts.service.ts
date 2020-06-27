@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {PostModel} from './post.model';
 import {catchError, map} from 'rxjs/operators';
 import {Subject, throwError} from 'rxjs';
@@ -24,8 +24,12 @@ export class PostsService {
   }
 
   fetchPosts(){
+
     return  this.http.get< {[key:string]:PostModel}>('https://ng-http-18a69.firebaseio.com/posts.json',{
-      headers : new HttpHeaders({'Custom-Header':'Hello'})
+      headers : new HttpHeaders({'Custom-Header':'Hello'}),
+      //params
+      params : new HttpParams().set('print','akalanka').append('akaka','ddddd')
+      
     })
       .pipe(map(responseData => {
         const postArray : PostModel[] = [];
