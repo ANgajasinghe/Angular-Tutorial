@@ -14,15 +14,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   onCreatePost(postData: { title: string; content: string }) {
-    // Send Http request
-    // this.http
-    //   .post(
-    //     'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
-    //     postData
-    //   )
-    //   .subscribe(responseData => {
-    //     console.log(responseData);
-    //   });
+    // posts.json -> this is only a firebase requirement
+    // postData will transform to JSON by angular
+
+    this.http.post('https://ng-http-18a69.firebaseio.com/posts.json', postData).subscribe(responseData => {
+      console.log(responseData);
+    });
     console.log(postData);
   }
 
