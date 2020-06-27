@@ -10,7 +10,7 @@ import {PostModel} from './post.model';
 })
 export class AppComponent implements OnInit {
   loadedPosts = [];
-
+  isFetching = false;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   onFetchPosts() {
-    // Send Http request
+    this.fetchPosts();
   }
 
   onClearPosts() {
@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFetching = true;
     this.http.get< {[key:string]:PostModel}>('https://ng-http-18a69.firebaseio.com/posts.json')
       .pipe(map(responseData => {
         const postArray : PostModel[] = [];
@@ -49,7 +50,9 @@ export class AppComponent implements OnInit {
         return postArray;
       }))
       .subscribe(results => {
-      console.log(results);
+      //console.log(results);
+        this.isFetching = false;
+        this.loadedPosts = results;
     });
   }
 }
