@@ -16,7 +16,9 @@ export class AuthInterceptorService implements HttpInterceptor{
     *
     * */
     console.log('Request is on the way');
-    return next.handle(req);
+    const modeifiedReq = req.clone({headers:req.headers.append('Auth','abc')});
+
+    return next.handle(modeifiedReq);
   }
 
 }
