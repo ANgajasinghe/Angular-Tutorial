@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
 import {PostModel} from './post.model';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {Subject, throwError} from 'rxjs';
 
 @Injectable({providedIn : 'root'}) // recommended
@@ -13,10 +13,11 @@ export class PostsService {
   createAndStorePost(_title:string , _content: string){
     const postData : PostModel = {title:_title , content: _content};
     this.http.post<{name : string}>('https://ng-http-18a69.firebaseio.com/posts.json', postData,{
-      headers : new HttpHeaders({'Custom-Header':'Hello'})
+      observe: 'body' // or can be response => get full data , events
     }
     )
       .subscribe(responseData => {
+        console.log(responseData);
     },error => {
         this.error.next(error.message);
       });
@@ -29,7 +30,7 @@ export class PostsService {
       headers : new HttpHeaders({'Custom-Header':'Hello'}),
       //params
       params : new HttpParams().set('print','akalanka').append('akaka','ddddd')
-      
+
     })
       .pipe(map(responseData => {
         const postArray : PostModel[] = [];
@@ -48,7 +49,17 @@ export class PostsService {
 
   deletePosts() {
     return this.http.delete(
-      'https://ng-http-18a69.firebaseio.com/posts.json'
-    );
+      'https://ng-http-18a69.firebaseio.com/posts.json',{
+          observe : 'events'
+      }
+    ).pipe(tap(event => {
+      console.log(event);
+      if (event.type === HttpEventType.Sent){
+        //....
+      }
+      if (event.type === HttpEventType.Response){
+        console.log(event.body)
+      }
+    }));
   }
 }
